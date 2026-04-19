@@ -4,7 +4,7 @@
     "InitialLocation": "Kresge",
     "Locations": {
         "Kresge": {
-            "Body": "This is Kresge College, lots of nice trees.",
+            "Body": "This is Kresge College. It houses the Owl Nest Cafe, the Kresge Academic Building and it held the dearly missed Kresge Crane",
             "Choices": [
                 {
                     "Text": "South",
@@ -13,7 +13,7 @@
             ]
         },
         "Porter": {
-            "Body": "This is Porter College, the trees are nice here too.",
+            "Body": "This is Porter College also known as smelly Porter by me since it tends to stink there. It houses Porter Market, the koi fish pond and Porter Meadow, where the most glories event of 4/20 is held.",
             "Choices": [
                 {
                     "Text": "North",
@@ -26,7 +26,7 @@
             ]
         },
         "Rachel Carson": {
-            "Body": "Rachel Carson College, more sun and fewer trees.",
+            "Body": "This is Rachel Carson College. Not much is know of this place, by me, but its nice from what I've seen.",
             "Choices": [
                 {
                     "Text": "North",
@@ -39,7 +39,7 @@
             ]
         },
         "Oakes": {
-            "Body": "Oakes College, even the buildings have tree bark on them.",
+            "Body": "This is Oakes College. It houses the very yummy Oaks Cafe.",
             "Choices": [
                 {
                     "Text": "North",
