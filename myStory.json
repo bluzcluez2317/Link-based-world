@@ -1,58 +1,77 @@
 {
-    "Title": "Campus Life on the West Side",
+    "Title": "Hell Hole Mystery",
     "Credits": "Created by Adam Smith (amsmith@ucsc.edu).",
-    "InitialLocation": "Kresge",
+    "InitialLocation": "Porter",
     "Locations": {
-        "Kresge": {
-            "Body": "This is Kresge College. It houses the Owl Nest Cafe, the Kresge Academic Building and it held the dearly missed Kresge Crane",
+        "Porter Meadows": {
+            "Body": "",
             "Choices": [
                 {
                     "Text": "South",
-                    "Target": "Porter"
+                    "Target": "Hell Hole"
+                }
+                {
+                    "Text": "South East",
+                    "Target": "McHenry"
+                }
+                {
+                    "Text": "North",
+                    "Target": "Kresge Academic Building"
+                }
+                {
+                    "Text": "North East",
+                    "Target": "Baskin Engineering"
                 }
             ]
         },
-        "Porter": {
-            "Body": "This is Porter College also known as smelly Porter by me since it tends to stink there. It houses Porter Market, the koi fish pond and Porter Meadow, where the most glories event of 4/20 is held.",
+        "Hell Hole": {
+            "Body": "",
             "Choices": [
                 {
                     "Text": "North",
-                    "Target": "Kresge"
+                    "Target": "Porter Meadows"
                 },
-                {
-                    "Text": "South",
-                    "Target": "Rachel Carson"
-                }
+               
             ]
         },
-        "Rachel Carson": {
-            "Body": "This is Rachel Carson College. Not much is know of this place, by me, but its nice from what I've seen.",
+        "McHenry": {
+            "Body": "",
             "Choices": [
                 {
                     "Text": "North",
-                    "Target": "Porter"
+                    "Target": "S&E Library"
                 },
                 {
-                    "Text": "South",
-                    "Target": "Oakes"
+                    "Text": "North East",
+                    "Target": "Porter Meadows"
                 }
             ]
         },
-        "Oakes": {
-            "Body": "This is Oakes College. It houses the very yummy Oaks Cafe.",
+        "Baskin Engineering": {
+            "Body": "",
+            "Choices": [
+                {
+                    "Text": "West",
+                    "Target": "Kresge Academic Building"
+                },
+                {
+                    "Text": "East",
+                    "Target": "S&E Library"
+                }
+            ]
+        },
+        "S&E Library": {
+            "Body": "",
             "Choices": [
                 {
                     "Text": "North",
-                    "Target": "Rachel Carson"
+                    "Target": "Baskin Engineering"
                 },
                 {
                     "Text": "South",
-                    "Target": "Beyond"
-                }
+                    "Target": "McHenry"
+                },
             ]
-        },
-        "Beyond": {
-            "Body": "Grass, don't forget to check for ticks!"
         }
     }
 }
