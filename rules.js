@@ -11,22 +11,53 @@ class Start extends Scene {
 
 class Location extends Scene {
     create(key) {
-        let locationData = this.engine.storyData.Locations[key]; // TODO: use `key` to get the data object for the current story location
-        this.engine.show(locationData.Body); // TODO: replace this text by the Body of the location data
-        let choices = locationData.Choices
-        if(choices && choices.length > 0) { // TODO: check if the location has any Choices
-            for(let choice of choices) { // TODO: loop over the location's Choices
-                this.engine.addChoice(choice.Text, choice); // TODO: use the Text of the choice
-                // TODO: add a useful second argument to addChoice so that the current code of handleChoice below works
+        //get the data object for the current story location
+        let locationData = this.engine.storyData.Locations[key];
+        let choices = locationData.Choices;
+
+        // Initialize trackers
+        if (!this.engine.visited) this.engine.visited = new Set();
+        if (!this.engine.inventory) this.engine.inventory = new Set()
+        if (!this.engine.counters) this.engine.counters = {};
+
+        // Show different message based on first visit
+        if (!this.engine.visited.has(key) && locationData.FirstVisitBody) {
+            // Helps Json interpret newline
+            this.engine.show(locationData.FirstVisitBody.replace(/\n/g, "<br>"));
+        } else {
+            this.engine.show(locationData.Body.replace(/\n/g, "<br>"));
+        }
+
+        // Mark as visited
+        this.engine.visited.add(key);
+
+        if (choices && choices.length > 0) {
+            for (let choice of choices) {
+                // Skip pick-up choices if item already collected
+                if (choice.Item && this.engine.inventory.has(choice.Item)) continue;
+
+                // Skip locked choices if required item not in inventory
+                if (choice.Requires && !this.engine.inventory.has(choice.Requires)) continue;
+
+                this.engine.addChoice(choice.Text, choice);
             }
         } else {
-            this.engine.addChoice("The end.")
+            this.engine.addChoice("The end.");
         }
     }
 
     handleChoice(choice) {
-        if(choice) {
-            this.engine.show("&gt; "+choice.Text);
+        if (choice) {
+            if (choice.Item) {
+                this.engine.inventory.add(choice.Item);
+                this.engine.show("You picked up: " + choice.Text);
+            }
+            if (choice.Count) {
+                let item = choice.Count;
+                this.engine.counters[item] = (this.engine.counters[item] || 0) + 1;
+                this.engine.show("You printed a statue! You now have " + this.engine.counters[item] + " Banana Slug Statue(s).");
+            }
+            this.engine.show("&gt; " + choice.Text);
             this.engine.gotoScene(Location, choice.Target);
         } else {
             this.engine.gotoScene(End);

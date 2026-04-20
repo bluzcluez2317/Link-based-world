@@ -1,77 +1,118 @@
 {
     "Title": "Hell Hole Mystery",
     "Credits": "Created by Adam Smith (amsmith@ucsc.edu).",
-    "InitialLocation": "Porter",
+    "InitialLocation": "Porter Meadows",
     "Locations": {
         "Porter Meadows": {
-            "Body": "",
+            "FirstVisitBody": "Current Location: Porter Meadows<br>If you go deep into the forest, you'll encounter a cave system called the Hell Hole and somewhere in there, it's said to have hidden treasure.",
+            "Body": "Current Location: Porter Meadows<br>Look for the map to get to the treasure.",
             "Choices": [
                 {
-                    "Text": "South",
+                    "Text": "Hell Hole",
                     "Target": "Hell Hole"
-                }
+                },
                 {
-                    "Text": "South East",
+                    "Text": "McHenry",
                     "Target": "McHenry"
-                }
+                },
                 {
-                    "Text": "North",
+                    "Text": "Kresge Academic Building",
                     "Target": "Kresge Academic Building"
-                }
-                {
-                    "Text": "North East",
-                    "Target": "Baskin Engineering"
                 }
             ]
         },
         "Hell Hole": {
-            "Body": "",
+            "Body": "Current Location: Hell Hole<br>You can't go any further without a map.",
             "Choices": [
                 {
-                    "Text": "North",
+                    "Text": "Porter Meadows",
                     "Target": "Porter Meadows"
                 },
-               
+                {
+                    "Text": "Enter the cave",
+                    "Requires": "cave_map",
+                    "Target": "Treasure"
+            }
             ]
         },
         "McHenry": {
-            "Body": "",
+            "FirstVisitBody": "Current Location: McHenry<br>Let's look through the bookselves, maybe we can find something helpful.",
+            "Body": "Current Location: McHenry<br>Nothing was found here",
             "Choices": [
                 {
-                    "Text": "North",
-                    "Target": "S&E Library"
+                    "Text": "Back",
+                    "Target": "Porter Meadows"
                 },
                 {
-                    "Text": "North East",
-                    "Target": "Porter Meadows"
+                    "Text": "Look through bookselves",
+                    "Target": "McHenry"
                 }
             ]
         },
         "Baskin Engineering": {
-            "Body": "",
+            "FirstVisitBody": "Current Location: Baskine Engineering<br>Maybe Slugworks has something useful.",
+            "Body": "Current Location: Baskine Engineering<brLooks like theres nothing here either.",
             "Choices": [
                 {
-                    "Text": "West",
+                    "Text": "Kresge Academic Building",
                     "Target": "Kresge Academic Building"
                 },
                 {
-                    "Text": "East",
+                    "Text": "S&E Library",
                     "Target": "S&E Library"
+                },
+                {
+                    "Text": "Slug Works",
+                    "Target": "Slug Works"
+                }
+            ] 
+        },
+        "Slug Works":{
+            "FirstVisitBody": "Current Location: Slug Works<br>This place seems to only have machines.",
+            "Body": "Current Location: Slug Works<br>",
+            "Choices": [
+                {
+                    "Text": "Back",
+                    "Target": "Baskin Engineering"
+                },
+                {
+                    "Text": "Use 3D printer",
+                    "Count": "Banana Slug Statues",
+                    "Target": "Slug Works"
                 }
             ]
         },
         "S&E Library": {
-            "Body": "",
+            "FirstVisitBody": "Current Location: S&E Library<br>The bookselves here look promising",
+            "Body": "Current Location: McHenry<br>You found the map!",
+            "Items": ["cave_map"],
             "Choices": [
                 {
-                    "Text": "North",
+                    "Text": "Back",
                     "Target": "Baskin Engineering"
                 },
                 {
-                    "Text": "South",
-                    "Target": "McHenry"
-                },
+                    "Text": "Look through bookselves",
+                    "Item": "cave_map",
+                    "Target": "S&E Library"
+                }
             ]
+        },
+        "Kresge Academic Building": {
+            "Body": "Current Location: Kresge Academic Building<br>This big place just to find nothing here.",
+            "Choices": [
+                {
+                    "Text": "Porter Meadows",
+                    "Target": "Porter Meadows"
+                },
+                {
+                    "Text": "Baskin Engineering",
+                    "Target": "Baskin Engineering"
+                }
+            ]
+        },
+        "Treasure": {
+            "Body": "You found the treasure!"
         }
     }
 }
